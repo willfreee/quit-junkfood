@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chapter 4: The Parasite on Your Appetite - The Easy Way to quit Junkfood</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Easy Way to quit Junkfood</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="the-parasite-on-your-appetite"><a class="header" href="#the-parasite-on-your-appetite">The Parasite on Your Appetite</a></h1>
+<p>When was the last time you were genuinely hungry? Not craving something specific. Not bored, stressed, or following a habit. Just genuinely, physically hungry—the kind of hunger that would be satisfied by a plain baked potato, a piece of grilled fish, or an apple.</p>
+<p>If you're like most people caught in the junk food cycle, you might not remember. The line between real hunger and the junk craving has been blurred for so long that you've stopped being able to tell them apart. You feel a strong urge to eat something—usually something very specific—and you call that "hunger." You've been calling it hunger for years.</p>
+<p>But here's the truth: a significant portion of what you've been calling hunger is not hunger at all. It's something else entirely—something that has attached itself to your natural appetite like a parasite and has been using your body's own signals against you.</p>
+<p>No one ever taught you the difference. The culture has blurred the distinction so thoroughly that most people go their entire lives without questioning whether the voice saying "I need chips right now" and the voice saying "I need a meal" are even coming from the same place. They're not. And once you learn to tell them apart, everything changes.</p>
+<h3 id="the-two-voices-in-your-body"><a class="header" href="#the-two-voices-in-your-body">The Two Voices in Your Body</a></h3>
+<p>Let's start with a simple observation. It's 10 a.m. on a weekday. You ate breakfast two hours ago—nothing huge, but enough. Eggs, toast, maybe some fruit. You're at your desk, or in your car, or wherever you happen to be at 10 a.m. on a weekday. And a thought appears: "I'm hungry."</p>
+<p>But are you? Really? Your stomach isn't empty. Your body has plenty of available energy from the breakfast you ate two hours ago. So where is this signal coming from?</p>
+<p>Maybe it's the habit of the morning snack, the routine you've followed for years. Maybe it's the sight of the vending machine down the hall, its glass front displaying rows of colorful packages. Maybe it's the smell of someone else's coffee, or the slight boredom of the task in front of you, or the low-grade stress of an upcoming meeting. Maybe it's none of those things individually but all of them together, a perfect storm of cues that your brain has learned to interpret as "time to eat."</p>
+<p>The point is this: you've been interpreting all food-related urges as "hunger" because no one ever taught you there were different kinds. The culture, the marketing, your own unexamined experience—they've all collapsed multiple completely separate biological and psychological signals into one convenient category. If you feel like eating, you're hungry. End of story.</p>
+<p>But that's not the end of the story. That's barely the beginning.</p>
+<p>Imagine you had a phone that received two completely different types of calls, but both showed up with the same ringtone and the same caller ID. One caller was your body's genuine fuel gauge—accurate, reliable, worth answering every time. The other was a spam caller—loud, insistent, completely fake, trying to sell you something you don't need and that will leave you worse off than before you picked up.</p>
+<p>If you never learned to tell the difference between these two callers, you'd pick up every call. You'd get scammed multiple times a day. You'd hand over your time, your energy, your resources to someone who had no legitimate claim on any of them. And you'd never understand why you felt so drained and depleted all the time, because as far as you knew, you were just answering your phone.</p>
+<p>That's exactly what's been happening with your appetite. You've been receiving two completely different signals—genuine physical hunger and the chemically-induced junk craving—and because they both show up with the same caller ID, you've been treating them as if they were the same thing. You've been feeding the craving as if it were hunger. And the craving, unlike hunger, is never satisfied. It just gets louder.</p>
+<p>The first step to freedom is learning to tell the difference between the two calls. Because once you can distinguish the body's genuine fuel signal from the parasite's manufactured demand, you stop being scammed. You eat when you're actually hungry. You ignore the spam. And the parasite, starved of the attention it needs to survive, begins to die.</p>
+<h3 id="the-portrait-of-real-hunger"><a class="header" href="#the-portrait-of-real-hunger">The Portrait of Real Hunger</a></h3>
+<p>So what does genuine hunger actually feel like? Let's paint a clear picture, because you may not have experienced it in its pure form for a long time.</p>
+<p>Real hunger is gradual. It builds slowly over hours, not suddenly over minutes. It's felt below the neck—an empty, hollow feeling in the stomach, a slight drop in energy. It doesn't scream or demand. It gently lets you know that a meal would be welcome sometime soon.</p>
+<p>Real hunger is not an emergency. It can wait. If you're in the middle of something, it will sit quietly in the background—like a polite guest who knocks and then waits on the porch, not a burglar trying to break down the door.</p>
+<p>And here's the crucial distinction: real hunger is non-specific. It doesn't care what you eat. A sandwich sounds good. Leftovers sound good. A piece of fruit sounds good. Real hunger is an open-minded willingness to eat, not a desperate demand for a particular product.</p>
+<p>Think about the last time you did something physically demanding—a long hike, an afternoon of gardening, helping a friend move furniture. You went hours without eating. You burned real energy. And when you finally stopped, you were hungry in a way that felt completely different from the 10 a.m. office craving. Your body felt empty in a clean, uncomplicated way. The thought of food—any real food—was genuinely appealing. You weren't fixated on a specific taste or texture. You were just calmly, physically ready to eat.</p>
+<p>And when you did eat, the food satisfied you. The hunger went away and stayed away for hours. There was no crash. No urgent need for more. No mental chatter about what to eat next. You ate, you felt good, and you moved on with your day.</p>
+<p>That's real hunger. That's how your body is supposed to work. That's the system that evolved over millions of years to keep you properly fueled without constant mental noise, without cravings, without guilt. It's elegant. It's reliable. And it's still there, underneath all the noise the parasite has been generating. We just need to clear away the interference so you can hear it again.</p>
+<h3 id="the-portrait-of-the-junk-craving"><a class="header" href="#the-portrait-of-the-junk-craving">The Portrait of the Junk Craving</a></h3>
+<p>Now let's contrast that with the other caller. The spam caller. The parasite.</p>
+<p>The junk craving is the opposite of real hunger in almost every way. It appears suddenly, often triggered by a commercial, a smell, a time of day, or an emotional state. It's felt above the neck—a mental fixation, a mouth-level desire for a specific taste or texture. "Chips. I need chips."</p>
+<p>And it's urgent. Real hunger is patient; the junk craving bangs on the door and rattles the windows. It creates a sense of emergency around a situation that is objectively not an emergency.</p>
+<p>The most telling distinction, though, is this: real hunger says "I could eat." The junk craving says "I need <em>that specific thing</em> right now and nothing else will do."</p>
+<p>Picture the 9 p.m. couch moment. You ate dinner two hours ago. You're physically full—maybe even still a little heavy from the meal. And yet something is calling you from the kitchen. Not a general interest in food. Not an open-minded willingness to eat whatever's available. A specific, insistent demand. Chips. Or ice cream. Or that leftover takeout in the fridge.</p>
+<p>Now notice this: the thought of eating an apple is completely unappealing. Almost offensive, even. A piece of toast? No. Some carrots? Absolutely not. You don't want food. You want <em>that</em>. The specific, engineered, hyper-palatable product that your brain has learned to associate with a particular pattern of neurological reward.</p>
+<p>If you were genuinely hungry, real food would sound good. If only ultra-processed food sounds good, you're not hungry. You're experiencing a chemically-induced craving. The parasite is talking, and it's learned to mimic the voice of hunger so perfectly that you've never thought to question it.</p>
+<p>The junk craving also has a distinctive aftermath. When you eat in response to real hunger, the hunger goes away and you feel satisfied—physically comfortable, energetically replenished, mentally at ease. When you eat in response to a junk craving, something different happens. The craving is temporarily silenced—there's a brief moment of relief—but it's not genuine satisfaction. Within an hour or two, sometimes within minutes, the craving is back. Or a new craving has taken its place. The salty craving gave way to a sweet craving. The sweet craving gave way to a salty craving. The cycle never actually ends; it just moves from one product to the next.</p>
+<p>That's not hunger. That's a chemical dependency announcing its need for the next dose.</p>
+<h3 id="the-parasite-revealed"><a class="header" href="#the-parasite-revealed">The Parasite Revealed</a></h3>
+<p>Now we need to talk about what junk food actually is, because the language we use shapes how we think about it, and how we think about it shapes our behavior.</p>
+<p>Most people think of junk food as "bad food." It's food, just less healthy food. It's in the same category as real nourishment—cheeseburgers and salads are both "things you eat"—but one is good and one is bad. This framing keeps junk food in the same mental bucket as real food, which means you keep applying the same rules to it. You try to eat it "in moderation." You try to balance it with healthier choices. You treat it as a legitimate part of your diet that just needs to be managed.</p>
+<p>But junk food is not "bad food." It's not food at all in any meaningful biological sense. It's an industrial chemical delivery system. A non-food. A formulation of refined sugars, industrial oils, synthetic flavor compounds, and textural enhancers that has been engineered to hijack your brain's reward circuitry while providing almost nothing your body can actually use for repair, energy, or maintenance.</p>
+<p>And it doesn't just sit passively in your system. It actively interferes with your normal appetite signaling. It attaches itself to your natural hunger mechanism—the elegant, reliable fuel gauge you were born with—and uses that mechanism for its own purposes. It's a parasite.</p>
+<p>In nature, there are parasites that hijack their host's behavior in ways that serve the parasite's life cycle rather than the host's wellbeing. A certain fungus infects ants, takes over their nervous system, and compels them to climb to a high point where the fungus can release its spores. The ant doesn't want to climb. The ant is being driven. Its own body has been turned against it by an organism that knows how to manipulate its signaling systems.</p>
+<p>Ultra-processed junk food works the same way. It enters your system. It floods your brain with dopamine and your bloodstream with glucose at levels that never occur in nature. Your body's regulatory systems, which evolved to handle the slow, gentle energy release of real food, are completely overwhelmed. The spike triggers a crash. The crash triggers an urgent signal for more. And that signal—that frantic, specific, demanding urge—registers in your conscious awareness as "hunger."</p>
+<p>But it's not hunger. It's the parasite, manipulating your body's own communication channels to demand more of the substance that created the problem in the first place.</p>
+<p>You have never been "hungry for chips." You have never had a biological need for soda. Your body doesn't require candy bars to function. Those urges are the parasite talking, using a voice it stole from your legitimate appetite. And you've been answering that voice for years, believing it was your own.</p>
+<h3 id="the-parasites-life-cycle"><a class="header" href="#the-parasites-life-cycle">The Parasite's Life Cycle</a></h3>
+<p>The parasite has a predictable life cycle. Once you see it laid out clearly, you'll recognize it immediately, because you've been living through it multiple times a day for most of your life.</p>
+<p>It starts with a trigger—a time of day, an emotional state, an environmental cue. The trigger activates the craving. You consume the product. For a brief moment, there's relief: blood sugar spikes, dopamine floods, the craving quiets. This relief feels like pleasure.</p>
+<p>Then the spike becomes a crash. Blood sugar plummets below where it started. Dopamine recedes. The body, now in chemical deficit, sends up another craving signal—often stronger than the first. The cycle repeats.</p>
+<p>The soda at 2 p.m. didn't satisfy a genuine need. It manufactured the need for the 3:30 p.m. candy bar. On and on it goes—a chain reaction of artificially created deficits and temporarily relieved discomfort, all of it mistaken for hunger and satisfaction.</p>
+<p>Imagine someone throwing a rock through your window every day at 3 p.m., then showing up at your door at 3:05 selling window repair services. At first, you'd be grateful for the repair service. "Thank goodness you're here! My window is broken again!" You'd pay them. You'd thank them. You'd develop a relationship with them. You might even come to depend on them.</p>
+<p>But at some point, if you stepped back and looked at the pattern, you'd notice something: the person breaking your window and the person repairing it are the same person. The "problem" and the "solution" are a single business model. The window repair service doesn't exist to fix your windows. It exists to make money, and breaking your windows is how it ensures continued demand.</p>
+<p>Junk food works exactly the same way. It creates the low blood sugar. It creates the dopamine drop. It creates the energy crash, the brain fog, the restless irritability. And then it presents itself as the solution to all of those problems. It breaks the window and sells you the repair. Every single time.</p>
+<p>The relief you feel when you eat junk food in response to a craving is not genuine pleasure. It's the temporary cessation of a discomfort that the previous dose created. You've been thanking the window repair person for years without realizing they were the one throwing the rocks.</p>
+<h3 id="the-express-lane-liquid-junk"><a class="header" href="#the-express-lane-liquid-junk">The Express Lane: Liquid Junk</a></h3>
+<p>There's one more aspect of the parasite I need to address, because it's one of the most common blind spots and it allows the cycle to continue operating even when someone thinks they've addressed the problem.</p>
+<p>I'm talking about liquid junk: sodas, energy drinks, sweetened iced teas, and the dessert-style coffee drinks that have become a staple of modern mornings.</p>
+<p>Many people don't mentally categorize these as "junk food" because they're liquids. A soda is just a drink. A sweetened coffee is just coffee with some flavoring. An energy drink is just a functional beverage for focus and productivity. These products fly under the radar in a way that a bag of chips or a candy bar doesn't.</p>
+<p>But liquid junk is not a benign exception. It's the parasite's express lane—a delivery mechanism that's even more efficient than solid junk food because it bypasses almost all of your body's normal satiety checkpoints.</p>
+<p>Your body has an elaborate, multi-layered system for registering food intake and generating the feeling of fullness. Chewing triggers salivary enzymes and sends signals to the brain that eating is occurring. The physical distension of the stomach activates stretch receptors that communicate directly with the appetite centers in your brain. The gradual absorption of nutrients through the intestinal wall triggers hormonal cascades—leptin, cholecystokinin, peptide YY—that tell your brain you've had enough.</p>
+<p>Liquid junk bypasses almost all of these checkpoints. There's no chewing. The liquid passes through the stomach rapidly without triggering significant stretch receptor activation. The massive sugar load hits the small intestine and is absorbed into the bloodstream almost immediately, creating an enormous glucose spike before the hormonal satiety signals have even had time to form.</p>
+<p>The result is that you can consume the caloric equivalent of a full meal through a straw in fifteen minutes, and your body registers it as having consumed approximately nothing. An hour later, the sugar crash arrives, and you feel what you interpret as hunger. But it's not hunger. It's the parasite, having entered through the express lane, already manufacturing its next demand.</p>
+<p>Think about the morning coffee run that's become a daily ritual for so many people. A large cup filled mostly with sweetened syrups, milk fat, whipped cream, and a token amount of actual coffee. It might contain four hundred, five hundred, six hundred calories. But it's a "coffee," so it's consumed alongside breakfast—or worse, instead of breakfast. The body receives a massive sugar load on an empty stomach, no satiety signals fire, and by 10 a.m. the crash is already building.</p>
+<p>You're not hungry at 10 a.m. because you didn't eat enough breakfast. You're experiencing the predictable aftermath of the liquid junk you consumed at 8 a.m. The parasite used the express lane, and now it's calling in the next order.</p>
+<h3 id="real-food-doesnt-fight-back"><a class="header" href="#real-food-doesnt-fight-back">Real Food Doesn't Fight Back</a></h3>
+<p>I want to address a fear that's probably been building as you've read this chapter. The fear goes something like this: <em>"If I'm not eating junk food anymore, what am I supposed to eat? Just boring, bland, healthy food for the rest of my life? That sounds miserable."</em></p>
+<p>That fear is the Big Monster talking—specifically, the part of the Big Monster that's been programmed by the parasite to believe that real food is a punishment and junk food is a reward. It's one of the parasite's most effective survival mechanisms, and it's completely false.</p>
+<p>Here's what actually happens when the parasite dies: real food starts tasting incredible.</p>
+<p>Ultra-processed junk food doesn't enhance your experience of flavor. It deadens it. The constant bombardment of extreme salt, sugar, and synthetic flavor enhancers overwhelms your taste receptors. After years of this assault, your palate is calloused. Real food tastes bland by comparison—not because it is bland, but because your taste buds have been temporarily desensitized.</p>
+<p>Think of it this way: ultra-processed food is like someone shouting directly into your ear. It's loud, but it's not saying anything worth hearing, and it leaves your ears ringing so badly you can't hear normal conversation. Real food speaks at a normal volume. Once your ears stop ringing—once your taste buds recover—you can hear it perfectly. And what it's saying is far more interesting than the shouting ever was.</p>
+<p>A simple meal of real food, eaten when you're genuinely hungry, is one of life's most reliable pleasures. A piece of grilled fish with lemon and herbs. Roasted vegetables with olive oil and salt, their natural sugars caramelized from the heat. A piece of fresh fruit at peak ripeness, its flavor complex and clean and completely satisfying. These are not sacrifices. These are not "health food" punishments. These are what food is supposed to taste like, and once the parasite is gone, you'll wonder how you ever settled for the industrial substitute.</p>
+<p>The parasite has been telling you that real food is boring and that life without junk food will be gray and tasteless. This is a lie, and it's a lie the parasite needs you to believe because it's essential to its survival. If you knew how good real food actually tastes once your senses recover, you'd never look back. The parasite's days would be numbered.</p>
+<p>And that's exactly what's about to happen.</p>
+<p>Here's what I want you to carry forward from this chapter. What you've been calling "hunger" for all these years is actually two completely separate signals that you've been conflating. Real Hunger is calm, patient, non-specific, felt below the neck, and satisfied by actual nourishment. The Junk Craving is frantic, urgent, product-specific, felt above the neck as mental fixation, and is not a biological need at all. It's an engineered chemical parasite that has hijacked your natural appetite pathway and has been using your body's own signaling system to perpetuate itself.</p>
+<p>Once you can tell the difference, everything changes. You eat when you're genuinely hungry. You enjoy real food—which tastes better than you remember, once your senses recover. And the parasite, cut off from its host, begins to starve. Not after months of struggle. Within days. Quietly, naturally, inevitably.</p>
+<p>The question now is: if the parasite is so effective at hijacking your appetite, how did it get installed in the first place? What's the external architecture that keeps it fed and thriving? That's what we're going to look at next.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="03.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="05.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="03.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="05.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
