@@ -1,6 +1,7 @@
 # Summary
 
 # PHASE 1: UNMASKING THE TRAP
+
 - [Chapter 1: The Instruction You Won't Expect](./01.md)
 - [Chapter 2: What If There's Nothing Wrong With You?](./02.md)
 - [Chapter 3: The Two Monsters](./03.md)
@@ -8,6 +9,7 @@
 - [Chapter 5: Engineered to Keep You Eating](./05.md)
 
 # PHASE 2: DISMANTLING THE ILLUSIONS
+
 - [Chapter 6: The "Treat" Trap](./06.md)
 - [Chapter 7: The Stress Relief Paradox](./07.md)
 - [Chapter 8: The "Quick Energy" and "Convenience" Lie](./08.md)
@@ -20,6 +22,7 @@
 - [Chapter 15: The "Just One Piece" Illusion](./15.md)
 
 # PHASE 3: WHY WILLPOWER FAILS
+
 - [Chapter 16: Why Moderation Is a Myth](./16.md)
 - [Chapter 17: The Willpower Trap](./17.md)
 - [Chapter 18: Exposing the Little Monster](./18.md)
@@ -29,6 +32,7 @@
 - [Chapter 22: The Instant Upgrade](./22.md)
 
 # PHASE 4: THE CLIMAX & PERMANENT FREEDOM
+
 - [Chapter 23: The Final Session](./23.md)
 - [Chapter 24: The Moment of Freedom](./24.md)
 - [Chapter 25: Permanent Immunity](./25.md)
